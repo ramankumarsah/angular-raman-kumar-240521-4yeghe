@@ -1,0 +1,54 @@
+<h1>Candidates</h1>
+<div class="display-container">
+  <table>
+    <tr>
+      <td><input type="checkbox" name="gender" (click)="search($event)" value="Male"/>Male
+        <input type="checkbox" name="gender" (click)="search($event)"  value="Female"/>Female
+      </td>
+      <td><input type="text" name="searchText" placeholder="Search" (blur)="search($event)"  /></td>
+    </tr>
+  </table>
+  <table class="display-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Gender</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let it of candidates">
+        <td>{{it.id}}</td>
+        <td>{{it.first_name}}</td>
+        <td>{{it.last_name}}</td>
+        <td>{{it.email}}</td>
+        <td>{{it.gender}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<h1>Add New Candidates</h1>
+<div>
+  <form #cadidateForm="ngForm" novalidate (ngSubmit)="save(cadidateForm)">
+    <table>
+      <tbody>
+        <tr>
+          <td><input type="text" name="first_name" ngModel #first_name="ngModel" placeholder="First Name"/></td>
+          <td><input type="text" name="last_name" ngModel #last_name="ngModel" placeholder="Last Name"/></td>
+        </tr>
+        <tr>
+          <td colspan="2"><input type="text" name="email"  ngModel #email="ngModel" placeholder="Email"/></td>
+        </tr>
+        <tr>
+          <td><input type="radio" name="gender" ngModel #gender="ngModel"  value="Male"/>Male
+            <input type="radio" name="gender" ngModel #gender="ngModel" value="Female"/>Female
+          </td>
+          <td><input type="submit" value="add" class="btn"/></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </form>
+</div>

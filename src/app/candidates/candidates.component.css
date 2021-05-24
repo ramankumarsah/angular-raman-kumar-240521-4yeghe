@@ -1,0 +1,11 @@
+table {
+  width: 100%;
+}
+
+.btn {
+  background: lightgreen;
+}
+
+.display-table tbody tr:nth-child(even) {
+  background: grey;
+}
